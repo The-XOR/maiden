@@ -1,5 +1,14 @@
 # maiden
 
+NOTA BENE******************
+maiden va compilato sul pc, installando "go°
+(sudo pacman -S go)
+eseguire compile.sh 
+
+al termine, copiare la cartella maiden in
+/run/media/$USER/rootfs/home/we/
+****************
+
 self contained web based editor for norns
 
 `maiden` consists of two parts - a backend http server and a frontend single page web app.
