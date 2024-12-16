@@ -53,7 +53,7 @@ class ReplOutput extends Component {
 class ReplInput extends Component {
   constructor(props) {
     super(props);
-    this.histroyIdx = 0;
+    this.historyIdx = 0;
   }
 
   onKeyDown = event => {
@@ -137,12 +137,12 @@ class Repl extends Component {
     if (this.props.renderChild) {
       content = this.props.children;
     } else {
-      content = <ReplOutput lines={lines} />
+      content = <ReplOutput lines={lines} />;
     }
-    
+
     return (
       <div className="repl" style={style}>
-        {content}        
+        {content}
         <ReplInput sendCommand={this.sendCommand} history={history} />
       </div>
     );

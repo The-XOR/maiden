@@ -12,6 +12,7 @@ import {
   REPL_CLEAR,
   REPL_UNIT_MAP_SUCCESS,
 } from './repl-actions';
+import { loadHistoryFromLocalStorage, saveHistoryToLocalStorage } from './repl-history-storage';
 
 /*
 -- shape of the repl connection and scrollback buffer state
@@ -41,7 +42,9 @@ export const outputAppend = (buffer, limit, line) => {
 
 const handleReplEcho = (action, state, input) => {
   // add command to history list
-  let history = state.history.get(action.component).unshift(input);
+  const history = state.history.get(action.component).unshift(input);
+  saveHistoryToLocalStorage(action.component, history);
+
   // echo command to output buffer
   let buffer = state.buffers.get(action.component);
   buffer = outputAppend(buffer, state.scrollbackLimit, input);
@@ -139,7 +142,7 @@ const repl = (state = initialReplState, action) => {
         ...state,
         connections: state.connections.set(action.component, conn.merge(changes)),
         buffers: state.buffers.set(action.component, new List()),
-        history: state.history.set(action.component, new List()),
+        history: state.history.set(action.component, new List(loadHistoryFromLocalStorage(action.component))),
       };
 
     case REPL_RECEIVE:
@@ -161,7 +164,7 @@ const repl = (state = initialReplState, action) => {
       };
 
     case REPL_UNIT_MAP_SUCCESS:
-      //console.log('Units:', action.units);
+      // console.log('Units:', action.units);
       return {
         ...state,
         units: action.units,
