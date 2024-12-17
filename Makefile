@@ -1,7 +1,7 @@
 default: build
 
-GO_LDFLAGS += -X github.com/monome/maiden/cmd.version=$(shell git describe --tags)
-GO_LDFLAGS += -X github.com/monome/maiden/cmd.compileTime=$(shell date -u +%Y-%m-%dT%H:%M)
+GO_LDFLAGS += -X github.com/The-XOR/maiden/cmd.version=$(shell git describe --tags)
+GO_LDFLAGS += -X github.com/The-XOR/maiden/cmd.compileTime=$(shell date -u +%Y-%m-%dT%H:%M)
 export GO_LDFLAGS
 
 build:
