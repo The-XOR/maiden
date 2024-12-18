@@ -1,6 +1,7 @@
 # data directory
 data/
 catalogs/
+.vscode/
 
 # glide project dependencies
 vendor/
