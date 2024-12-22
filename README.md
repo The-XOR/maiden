@@ -5,8 +5,11 @@ maiden va compilato sul pc, installando "go°
 (sudo pacman -S go)
 eseguire compile.sh 
 
-al termine, copiare la cartella maiden in
-/run/media/$USER/rootfs/home/we/
+al termine, copiare la cartella dist/maiden in /run/media/$USER/rootfs/home/we/
+
+oppure, tramite SSH, eseguire il comando
+./copycompiled.sh
+
 ****************
 
 self contained web based editor for norns
