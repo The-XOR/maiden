@@ -2,6 +2,7 @@
 data/
 catalogs/
 .vscode/
+app/
 
 # glide project dependencies
 vendor/
